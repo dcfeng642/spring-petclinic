@@ -276,6 +276,13 @@
         </configuration>
       </plugin>
 
+      <!-- Added for sonarqube analysis -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>${sonar-maven-plugin.version}</version>
+      </plugin>
+
     </plugins>
   </build>
 
