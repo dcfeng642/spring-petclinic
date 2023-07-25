@@ -2,19 +2,14 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      parallel {
-        stage('Build') {
-          steps {
-            sh './mvnw package'
-          }
-        }
+      steps {
+        sh './mvnw package'
+      }
+    }
 
-        stage('SonarQube Analysis') {
-          steps {
-            sh './mvnw clean verify sonar:sonar'
-          }
-        }
-
+    stage('SonarQube') {
+      steps {
+        sh './mvnw clean verify sonar:sonar -Dsonar.host.url=https://172.17.0.1:9000'
       }
     }
 
