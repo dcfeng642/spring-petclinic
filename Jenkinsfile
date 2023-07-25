@@ -11,7 +11,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
           steps {
-            sh 'sh "/var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.host.url=https://172.17.0.1:9000 -Dsonar.projectName=meanstackapp -Dsonar.projectVersion=1.0 -Dsonar.projectKey=meanstack:app -Dsonar.sources=. "'
+            sh 'sh /var/jenkins_home/sonar-scanner/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner'
           }
         }
 
