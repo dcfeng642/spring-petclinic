@@ -1,0 +1,30 @@
+---
+# This playbook deploys the server
+
+- name: Deployment playbook
+  gather_facts: false
+  hosts: localhost
+  connection: local 
+  user: dfang
+
+  tasks:
+  - name: Print message
+    debug:
+      msg: Hello world
+  
+  
+#  - name: Read-write git checkout from github
+#    ansible.builtin.git:
+#      repo: 'https://github.com/dcfeng642/spring-petclinic.git'
+#      dest: ./repo
+#      clone: yes
+      
+  - name: Build project
+    shell: ./mvnw package -DskipTests
+#    args:
+#      chdir: ./repo
+  
+  - name: Start server
+    shell: java -jar target/*.jar --server.port=8082
+#    args:
+#      chdir: ./repo
