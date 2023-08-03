@@ -3,10 +3,7 @@ pipeline {
   stages {
     stage('Git clone') {
       steps {
-        git(
-          url: "https://github.com/spring-projects/spring-petclinic.git",
-          branch: "main"
-        )
+        sh 'git clone https://github.com/dcfeng642/spring-petclinic.git'
       }
     }
     
