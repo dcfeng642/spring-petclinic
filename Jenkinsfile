@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+    stage('Ansible') {
       steps {
-        sh 'java -jar target/*.jar --server.port=8082'
+        sh 'ansible-playbook -i hosts site.yml'
       }
     }
 
